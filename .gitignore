@@ -1,0 +1,77 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+*.crt
+*.cer
+*.token
+*.secret
+secrets/
+credentials/
+
+# Personal and local app data
+data/
+local-data/
+user-data/
+profiles/
+backups/
+exports/
+captures/
+screenshots/
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs and diagnostics
+logs/
+*.log
+*.trace
+*.dmp
+crash-dumps/
+
+# Build outputs and installers
+dist/
+build/
+out/
+release/
+target/
+bin/
+obj/
+artifacts/
+*.msi
+*.msix
+*.appx
+*.exe
+
+# Dependencies and caches
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+.turbo/
+.vite/
+.next/
+coverage/
+.pytest_cache/
+__pycache__/
+*.pyc
+
+# Editors and OS files
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
