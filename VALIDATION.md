@@ -111,3 +111,74 @@ Notes :
 - Fichiers pousses : `.gitignore`, `MASTER.md`, `ROADMAP.md`, `VALIDATION.md`.
 - Aucun code applicatif, secret, cache, build, export ou donnee personnelle n'a
   ete pousse.
+
+## 2026-05-06 - Decision de stack applicative
+
+Etat :
+
+- Repo modifie : stack Tauri 2 + React + TypeScript + Vite + Rust inscrite dans
+  `MASTER.md` et `ROADMAP.md`.
+- Prod alignee : non applicable, aucune application n'existe encore.
+- Validation reelle effectuee : decision utilisateur confirmee dans la session.
+
+Notes :
+
+- Sources consultees : documentation officielle Tauri 2 pour la creation de
+  projet, Vite, les commandes Rust appelees depuis le frontend, et les
+  installateurs Windows.
+- Les prerequis locaux restent a verifier avant generation du squelette.
+
+## 2026-05-06 - Verification des prerequis locaux
+
+Etat :
+
+- Repo modifie : non, verification environnement uniquement.
+- Prod alignee : non applicable.
+- Validation reelle effectuee : commandes locales de version executees.
+
+Notes :
+
+- Node : `v22.22.2`.
+- npm : `11.12.0`.
+- rustc : `1.94.1`.
+- cargo : `1.94.1`.
+- Les prerequis de base pour Tauri + React + Rust sont presents.
+
+## 2026-05-06 - Prototype Tauri local
+
+Etat :
+
+- Repo modifie : squelette Tauri 2 + React + TypeScript + Vite remplace par une
+  premiere application Commode.
+- Prod alignee : non applicable, application non distribuee ni installee.
+- Validation reelle effectuee : validations automatiques et builds locaux
+  effectues.
+
+Notes :
+
+- Interface ajoutee : tableau de bord, recherche, categories, liste logiciels,
+  fiche detaillee, panneau terminal.
+- Backend Rust ajoute : scan des logiciels Windows via registre Uninstall
+  HKLM/HKCU, categorisation simple, commande terminal PowerShell/CMD explicite
+  avec timeout de 30 secondes.
+- Commandes validees :
+  - `npm run typecheck`
+  - `cargo fmt --manifest-path src-tauri\Cargo.toml -- --check`
+  - `cargo check --manifest-path src-tauri\Cargo.toml`
+  - `cargo test --manifest-path src-tauri\Cargo.toml`
+  - `npm audit --audit-level=high`
+  - `npm run build`
+  - `npm run tauri build`
+- Tests Rust ajoutes : 5 tests unitaires sur la categorisation et le formatage
+  des dates registre.
+- `npm run build` a d'abord echoue dans le sandbox sur `spawn EPERM` pour le
+  binaire esbuild, puis a reussi hors sandbox sans modification de code.
+- `npm run tauri build` a genere localement :
+  - `src-tauri\target\release\commode.exe`
+  - `src-tauri\target\release\bundle\nsis\Commode_0.1.0_x64-setup.exe`
+  - `src-tauri\target\release\bundle\msi\Commode_0.1.0_x64_en-US.msi`
+- Les artefacts `dist`, `node_modules`, `src-tauri\target` et les installateurs
+  sont ignores par Git et ne doivent pas etre pousses.
+- Controle anti-leak local effectue avant commit : aucun token, cle privee,
+  mot de passe ou secret detecte dans les fichiers non ignores.
+- Test manuel dans une fenetre Tauri : non effectue a ce stade.

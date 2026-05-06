@@ -22,51 +22,58 @@ des fonctions de verification et de mise a jour.
 
 ## Stack
 
-Stack non decidee a ce stade.
+Stack decidee le 2026-05-06 :
 
-Options probables a evaluer :
-
-- Application desktop Windows installable avec interface locale.
-- Backend local pour lire les informations systeme.
-- Stockage local leger pour les categories, metadonnees et preferences.
+- Tauri 2 pour l'application desktop Windows installable.
+- React + TypeScript + Vite pour l'interface.
+- Rust pour les commandes locales, l'inventaire logiciel, le terminal integre
+  et les integrations systeme.
+- Stockage local leger a definir pour les categories, metadonnees et
+  preferences.
 
 ## Structure actuelle
 
-Le projet vient d'etre initialise comme dossier vide.
+Le projet contient maintenant un prototype Tauri 2 + React + Rust.
 
-Fichiers de verite crees :
+Fichiers et dossiers principaux :
 
 - `MASTER.md` : reference principale du projet.
 - `ROADMAP.md` : objectif courant et prochaines etapes.
 - `VALIDATION.md` : journal des validations reelles.
+- `src/` : interface React.
+- `src-tauri/` : application Tauri/Rust, configuration desktop et commandes
+  locales.
+- `package.json` / `package-lock.json` : dependances frontend.
+- `src-tauri/Cargo.toml` / `src-tauri/Cargo.lock` : dependances Rust.
 
 ## Etat courant
 
-- Repo modifie : documentation de cadrage initiale creee, depot git initialise,
-  remote GitHub relie, premier commit pousse sur `origin/main`.
-- Prod alignee : non applicable, aucune application deployee.
-- Validation reelle effectuee : presence et contenu des fichiers de cadrage,
-  remote GitHub, commit et push initial verifies le 2026-05-06.
+- Repo modifie : prototype Tauri/React/Rust cree localement avec inventaire
+  Windows via registre, recherche/categories, fiches detaillees et terminal
+  PowerShell/CMD integre.
+- Prod alignee : non applicable, application non distribuee ni installee.
+- Validation reelle effectuee : typecheck frontend, formatage Rust, check Rust,
+  audit npm, build frontend et build Tauri installable effectues le 2026-05-06.
+  Test manuel dans la fenetre Tauri non encore effectue.
 
 ## Sources de verite connues
 
 1. `MASTER.md`
 2. `ROADMAP.md`
 3. `VALIDATION.md`
-4. Code futur de l'application
+4. Code de l'application
 5. Depot GitHub cible : `https://github.com/kinowill/Commode`
    (remote `origin` relie localement, depot distant verifie en lecture)
 6. Instructions Codex actives fournies dans la session
 
 ## Decisions ouvertes
 
-- Stack technique de l'application.
 - Perimetre exact de la detection des logiciels installes.
 - Sources de donnees pour les informations detaillees.
 - Methode de verification des versions disponibles.
 - Methode de mise a jour des logiciels.
 - Niveau d'automatisation autorise pour les mises a jour.
-- Perimetre et garde-fous du terminal integre PowerShell/CMD.
+- Garde-fous avances du terminal integre PowerShell/CMD.
 
 ## Decisions prises
 
@@ -76,6 +83,7 @@ Fichiers de verite crees :
   100% local, aucune telemetrie, aucune synchronisation cloud, et acces reseau
   uniquement sur action explicite de l'utilisateur pour verifier les mises a
   jour.
+- Stack retenue : Tauri 2 + React + TypeScript + Vite + Rust.
 
 ## Securite et confidentialite
 
