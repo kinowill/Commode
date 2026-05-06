@@ -18,6 +18,10 @@ des fonctions de verification et de mise a jour.
 - Verification des versions disponibles.
 - Aide a la mise a jour des logiciels.
 - Fenetre terminal integree pour PowerShell et CMD.
+- Actions controlees sur un logiciel : ouvrir l'emplacement dans
+  l'Explorateur, lancer l'application quand le chemin est connu, modifier les
+  metadonnees locales, masquer ou retirer une entree locale, et proposer une
+  desinstallation via les commandes Windows avec confirmation explicite.
 - Interface soignee avec de bonnes finitions.
 
 ## Stack
@@ -52,12 +56,16 @@ Fichiers et dossiers principaux :
   avec inventaire Windows via registre, recherche/categories, fiches detaillees
   et terminal PowerShell/CMD integre. Corrections UI appliquees : pictogrammes
   embarques, suppression des faux liens, terminal a la demande, wording mises a
-  jour nettoye pour le mode non installe.
+  jour nettoye pour le mode non installe, bouton de retour au filtre "Toutes"
+  visible. Les actions futures sur un logiciel sont notees : ouvrir dans
+  l'Explorateur, lancer, modifier les metadonnees locales, masquer/retirer, et
+  desinstaller avec confirmation explicite.
 - Prod alignee : non applicable, application non distribuee ni installee.
 - Validation reelle effectuee : typecheck frontend, formatage Rust, check Rust,
   tests Rust, audit npm, build frontend, build Tauri installable et push GitHub
-  effectues le 2026-05-06. Test manuel dans la fenetre Tauri non encore
-  effectue.
+  effectues le 2026-05-06. Typecheck frontend, build frontend et build Tauri
+  reeffectues le 2026-05-06 apres correction du filtre "Toutes". Test manuel
+  dans la fenetre Tauri non encore effectue.
 
 ## Sources de verite connues
 
@@ -79,6 +87,10 @@ Fichiers et dossiers principaux :
 - Garde-fous avances du terminal integre PowerShell/CMD.
 - Extraction de vraies icones logiciel depuis les executables Windows.
 - UX definitive de la verification et de la mise a jour des logiciels.
+- UX definitive des actions logiciel : lancer, ouvrir dans l'Explorateur,
+  modifier les metadonnees locales, masquer, retirer de l'affichage, ou
+  desinstaller. Les actions destructrices ne doivent jamais etre lancees sans
+  confirmation claire.
 
 ## Decisions prises
 

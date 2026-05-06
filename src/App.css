@@ -375,6 +375,10 @@ a:focus-visible {
   padding: 0 11px;
 }
 
+.category-chip.all-filter {
+  border-color: var(--line-dark);
+}
+
 .category-chip.active {
   color: #f7f0df;
   background: var(--carbon-soft);

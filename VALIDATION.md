@@ -241,3 +241,25 @@ Notes :
   ete detecte, puis la relance a reussi.
 - Executable portable regenere :
   `src-tauri\target\release\commode.exe`.
+
+## 2026-05-06 - Retour filtre Toutes et actions logiciel notees
+
+Etat :
+
+- Repo modifie : bouton de filtre "Toutes" ajoute dans la barre de categories,
+  categorie active conservee dans les filtres visibles, et demande d'actions
+  logiciel inscrite dans `MASTER.md` et `ROADMAP.md`.
+- Prod alignee : non applicable.
+- Validation reelle effectuee : `npm run typecheck`, `git diff --check`,
+  `npm run build` et `npm run tauri build` reussis le 2026-05-06.
+
+Notes :
+
+- Le retour au catalogue complet ne depend plus de la liste deroulante
+  categorie.
+- Les actions logiciel demandees sont notees comme chantier controle :
+  ouvrir dans l'Explorateur, lancer l'application, modifier les metadonnees
+  locales, masquer ou retirer de l'affichage, et desinstaller uniquement avec
+  confirmation explicite.
+- Executable portable regenere :
+  `src-tauri\target\release\commode.exe`.

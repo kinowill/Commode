@@ -27,6 +27,10 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
 - [ ] Definir une strategie prudente pour verifier les versions disponibles.
 - [ ] Definir une strategie prudente pour proposer ou lancer les mises a jour.
 - [ ] Durcir les garde-fous du terminal integre PowerShell/CMD.
+- [ ] Definir et implementer les actions controlees sur un logiciel : ouvrir
+      l'emplacement dans l'Explorateur, lancer l'application, modifier les
+      metadonnees locales, masquer/retirer de l'affichage, et desinstaller
+      seulement avec confirmation explicite.
 - [x] Implementer une premiere finition UI : navigation, details, etats vides,
       erreurs, chargements, accessibilite.
 - [x] Ajouter des pictogrammes embarques qui fonctionnent en mode non installe.
@@ -34,6 +38,8 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
 - [x] Deplacer le terminal en panneau plein largeur ouvert a la demande.
 - [x] Nettoyer le wording des mises a jour tant que la fonction n'est pas
       configuree.
+- [x] Ajouter un bouton de filtre "Toutes" visible pour revenir au catalogue
+      complet sans passer par la liste deroulante.
 - [x] Construire un premier prototype local.
 - [x] Pousser le prototype applicatif sur GitHub.
 - [ ] Valider manuellement le prototype dans une fenetre Tauri sur la machine
@@ -48,6 +54,9 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
   extraites depuis les executables restent a implementer.
 - Les mises a jour sont affichees comme non configurees tant que la strategie
   produit/technique n'est pas tranchee.
+- Les actions logiciel doivent etre separees par niveau de risque : ouvrir ou
+  lancer est peu risque, modifier des metadonnees reste local, desinstaller ou
+  supprimer doit demander une confirmation explicite.
 - Le depot GitHub `https://github.com/kinowill/Commode` est relie en remote
   `origin`, verifie en lecture, et le prototype applicatif a ete pousse.
 - Les sources externes de mises a jour doivent etre confirmees avant usage

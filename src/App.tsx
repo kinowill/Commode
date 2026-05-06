@@ -115,6 +115,17 @@ function App() {
       .sort((left, right) => right.count - left.count);
   }, [inventory]);
 
+  const visibleCategoryStats = useMemo(() => {
+    const topCategories = categoryStats.slice(0, 6);
+
+    if (category === "Toutes" || topCategories.some((entry) => entry.name === category)) {
+      return topCategories;
+    }
+
+    const selectedCategory = categoryStats.find((entry) => entry.name === category);
+    return selectedCategory ? [...topCategories.slice(0, 5), selectedCategory] : topCategories;
+  }, [category, categoryStats]);
+
   async function runCommand() {
     setIsRunningCommand(true);
     setTerminalError(null);
@@ -230,7 +241,15 @@ function App() {
             {scanError ? <div className="notice error">{scanError}</div> : null}
 
             <div className="category-strip" aria-label="Repartition par categorie">
-              {categoryStats.slice(0, 6).map((entry) => (
+              <button
+                className={category === "Toutes" ? "category-chip all-filter active" : "category-chip all-filter"}
+                type="button"
+                onClick={() => setCategory("Toutes")}
+              >
+                <span>Toutes</span>
+                <strong>{numberFormatter.format(inventory?.total ?? 0)}</strong>
+              </button>
+              {visibleCategoryStats.map((entry) => (
                 <button
                   className={entry.name === category ? "category-chip active" : "category-chip"}
                   key={entry.name}
@@ -238,7 +257,7 @@ function App() {
                   onClick={() => setCategory(entry.name)}
                 >
                   <span>{entry.name}</span>
-                  <strong>{entry.count}</strong>
+                  <strong>{numberFormatter.format(entry.count)}</strong>
                 </button>
               ))}
             </div>
