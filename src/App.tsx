@@ -48,7 +48,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("Toutes");
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [updateStatus, setUpdateStatus] = useState("Pas encore vérifié");
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [shell, setShell] = useState<TerminalShell>("powershell");
   const [terminalCommand, setTerminalCommand] = useState("winget --version");
   const [terminalHistory, setTerminalHistory] = useState<TerminalResult[]>([]);
@@ -131,10 +131,6 @@ function App() {
     }
   }
 
-  function handleUpdateCheck() {
-    setUpdateStatus("Réseau non lancé : connecteur de mises à jour à définir");
-  }
-
   return (
     <main className="app-shell">
       <aside className="sidebar" aria-label="Navigation principale">
@@ -148,17 +144,20 @@ function App() {
           </div>
         </div>
 
-        <nav className="nav-stack" aria-label="Sections">
-          <a className="nav-item active" href="#catalogue">
-            Catalogue
-          </a>
-          <a className="nav-item" href="#details">
-            Details
-          </a>
-          <a className="nav-item" href="#terminal">
-            Terminal
-          </a>
-        </nav>
+        <div className="scope-stack" aria-label="Etat de l'application">
+          <div className="scope-item">
+            <span>Vue</span>
+            <strong>Catalogue</strong>
+          </div>
+          <div className="scope-item">
+            <span>Mode</span>
+            <strong>Portable</strong>
+          </div>
+          <div className="scope-item">
+            <span>Réseau</span>
+            <strong>Désactivé</strong>
+          </div>
+        </div>
 
         <div className="privacy-block">
           <span className="status-dot" aria-hidden="true" />
@@ -173,8 +172,11 @@ function App() {
             <h2>Logiciels installés</h2>
           </div>
           <div className="topbar-actions">
-            <button className="secondary-button" type="button" onClick={handleUpdateCheck}>
-              Vérifier les mises à jour
+            <button className="secondary-button muted-action" type="button" disabled>
+              Mises à jour non configurées
+            </button>
+            <button className="secondary-button" type="button" onClick={() => setIsTerminalOpen((value) => !value)}>
+              {isTerminalOpen ? "Masquer terminal" : "Ouvrir terminal"}
             </button>
             <button className="primary-button" type="button" onClick={scanSoftware} disabled={isScanning}>
               {isScanning ? "Scan..." : "Rescanner"}
@@ -197,7 +199,7 @@ function App() {
           </article>
           <article className="metric wide">
             <span>Mises à jour</span>
-            <strong>{updateStatus}</strong>
+            <strong>Non configurées</strong>
           </article>
         </section>
 
@@ -300,7 +302,9 @@ function App() {
               <div className="empty-state">Selectionne un logiciel pour afficher sa fiche.</div>
             )}
           </section>
+        </section>
 
+        {isTerminalOpen ? (
           <section className="terminal-panel" id="terminal" aria-label="Terminal integre">
             <div className="terminal-header">
               <div>
@@ -361,7 +365,7 @@ function App() {
               )}
             </div>
           </section>
-        </section>
+        ) : null}
       </section>
     </main>
   );

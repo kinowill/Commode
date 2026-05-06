@@ -30,6 +30,10 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
 - [x] Implementer une premiere finition UI : navigation, details, etats vides,
       erreurs, chargements, accessibilite.
 - [x] Ajouter des pictogrammes embarques qui fonctionnent en mode non installe.
+- [x] Supprimer les faux liens de navigation d'une interface mono-page.
+- [x] Deplacer le terminal en panneau plein largeur ouvert a la demande.
+- [x] Nettoyer le wording des mises a jour tant que la fonction n'est pas
+      configuree.
 - [x] Construire un premier prototype local.
 - [x] Pousser le prototype applicatif sur GitHub.
 - [ ] Valider manuellement le prototype dans une fenetre Tauri sur la machine
@@ -42,6 +46,8 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
   avances restent a durcir.
 - Les pictogrammes actuels sont embarques par categorie ; les vraies icones
   extraites depuis les executables restent a implementer.
+- Les mises a jour sont affichees comme non configurees tant que la strategie
+  produit/technique n'est pas tranchee.
 - Le depot GitHub `https://github.com/kinowill/Commode` est relie en remote
   `origin`, verifie en lecture, et le prototype applicatif a ete pousse.
 - Les sources externes de mises a jour doivent etre confirmees avant usage

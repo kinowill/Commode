@@ -130,22 +130,28 @@ a:focus-visible {
   color: #bcb5a6;
 }
 
-.nav-stack {
+.scope-stack {
   display: grid;
   gap: 8px;
 }
 
-.nav-item {
-  color: #f7f0df;
-  text-decoration: none;
+.scope-item {
+  display: grid;
+  gap: 4px;
   padding: 12px 13px;
-  border-left: 3px solid transparent;
+  background: var(--carbon-soft);
+  border-left: 3px solid #9fd8a6;
 }
 
-.nav-item.active,
-.nav-item:hover {
-  background: var(--carbon-soft);
-  border-color: #9fd8a6;
+.scope-item span {
+  color: #bcb5a6;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.scope-item strong {
+  color: #f7f0df;
 }
 
 .privacy-block {
@@ -247,6 +253,19 @@ a:focus-visible {
   border: 1px solid var(--line-dark);
 }
 
+.secondary-button:disabled,
+.muted-action {
+  cursor: default;
+  color: var(--muted);
+  background: #eee6d7;
+  border-color: var(--line);
+}
+
+.secondary-button:disabled:hover,
+.muted-action:hover {
+  transform: none;
+}
+
 .metric-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-bottom: 18px;
@@ -290,10 +309,9 @@ a:focus-visible {
 
 .main-grid {
   grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.8fr);
-  grid-template-areas:
-    "catalogue details"
-    "catalogue terminal";
+  grid-template-areas: "catalogue details";
   align-items: start;
+  margin-bottom: 18px;
 }
 
 .catalogue-panel {
@@ -308,7 +326,6 @@ a:focus-visible {
 }
 
 .terminal-panel {
-  grid-area: terminal;
   padding: 18px;
 }
 
@@ -521,7 +538,7 @@ a:focus-visible {
 .terminal-output {
   display: grid;
   gap: 10px;
-  max-height: 260px;
+  max-height: 340px;
   overflow: auto;
   padding: 12px;
   color: #f7f0df;

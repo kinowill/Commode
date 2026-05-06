@@ -50,8 +50,9 @@ Fichiers et dossiers principaux :
 
 - Repo modifie : prototype Tauri/React/Rust cree et pousse sur `origin/main`
   avec inventaire Windows via registre, recherche/categories, fiches detaillees
-  et terminal PowerShell/CMD integre. Correction locale en cours pour afficher
-  des pictogrammes embarques en mode non installe.
+  et terminal PowerShell/CMD integre. Corrections UI appliquees : pictogrammes
+  embarques, suppression des faux liens, terminal a la demande, wording mises a
+  jour nettoye pour le mode non installe.
 - Prod alignee : non applicable, application non distribuee ni installee.
 - Validation reelle effectuee : typecheck frontend, formatage Rust, check Rust,
   tests Rust, audit npm, build frontend, build Tauri installable et push GitHub
@@ -77,6 +78,7 @@ Fichiers et dossiers principaux :
 - Niveau d'automatisation autorise pour les mises a jour.
 - Garde-fous avances du terminal integre PowerShell/CMD.
 - Extraction de vraies icones logiciel depuis les executables Windows.
+- UX definitive de la verification et de la mise a jour des logiciels.
 
 ## Decisions prises
 

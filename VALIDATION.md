@@ -217,3 +217,27 @@ Notes :
   `src-tauri\target\release\commode.exe`.
 - Prochaine evolution : extraction de vraies icones depuis les executables
   Windows et cache local controle.
+
+## 2026-05-06 - Nettoyage UX mono-page
+
+Etat :
+
+- Repo modifie : suppression des faux liens de navigation, terminal deplace en
+  panneau plein largeur a la demande, wording mises a jour simplifie.
+- Prod alignee : non applicable.
+- Validation reelle effectuee : `npm run typecheck`, `npm run build` et
+  `npm run tauri build` reussis le 2026-05-06.
+
+Notes :
+
+- Cause constatee : les liens vers des sections etaient inutiles dans une seule
+  page, le terminal occupait une colonne permanente sans valeur continue, et le
+  message de mises a jour exposait une phrase technique non utile.
+- Correction choisie : etat lateral statique, bouton d'ouverture du terminal,
+  terminal plein largeur, et statut visible "Mises a jour non configurees".
+- Premiere tentative de `npm run tauri build` echouee car Windows refusait de
+  remplacer `src-tauri\target\release\commode.exe`, probablement verrouille par
+  l'app lancee en mode portable. Aucun processus `commode` actif n'a ensuite
+  ete detecte, puis la relance a reussi.
+- Executable portable regenere :
+  `src-tauri\target\release\commode.exe`.
