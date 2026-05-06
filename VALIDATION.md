@@ -182,3 +182,17 @@ Notes :
 - Controle anti-leak local effectue avant commit : aucun token, cle privee,
   mot de passe ou secret detecte dans les fichiers non ignores.
 - Test manuel dans une fenetre Tauri : non effectue a ce stade.
+
+## 2026-05-06 - Push du prototype applicatif
+
+Etat :
+
+- Repo modifie : prototype applicatif commite et pousse sur `origin/main`.
+- Prod alignee : non applicable, application non distribuee ni installee.
+- Validation reelle effectuee : sortie du script de commit/push confirmee.
+
+Notes :
+
+- Commit pousse : `49519f5` (`feat: scaffold commode desktop prototype`).
+- Les artefacts de build et installateurs sont restes locaux et ignores.
+- Cette entree documentaire aligne la trace projet avec le push du prototype.

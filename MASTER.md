@@ -48,13 +48,14 @@ Fichiers et dossiers principaux :
 
 ## Etat courant
 
-- Repo modifie : prototype Tauri/React/Rust cree localement avec inventaire
-  Windows via registre, recherche/categories, fiches detaillees et terminal
-  PowerShell/CMD integre.
+- Repo modifie : prototype Tauri/React/Rust cree et pousse sur `origin/main`
+  avec inventaire Windows via registre, recherche/categories, fiches detaillees
+  et terminal PowerShell/CMD integre.
 - Prod alignee : non applicable, application non distribuee ni installee.
 - Validation reelle effectuee : typecheck frontend, formatage Rust, check Rust,
-  audit npm, build frontend et build Tauri installable effectues le 2026-05-06.
-  Test manuel dans la fenetre Tauri non encore effectue.
+  tests Rust, audit npm, build frontend, build Tauri installable et push GitHub
+  effectues le 2026-05-06. Test manuel dans la fenetre Tauri non encore
+  effectue.
 
 ## Sources de verite connues
 

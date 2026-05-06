@@ -30,6 +30,7 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
 - [x] Implementer une premiere finition UI : navigation, details, etats vides,
       erreurs, chargements, accessibilite.
 - [x] Construire un premier prototype local.
+- [x] Pousser le prototype applicatif sur GitHub.
 - [ ] Valider manuellement le prototype dans une fenetre Tauri sur la machine
       cible.
 
@@ -39,7 +40,7 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
 - Le terminal integre fonctionne en commande explicite, mais ses garde-fous
   avances restent a durcir.
 - Le depot GitHub `https://github.com/kinowill/Commode` est relie en remote
-  `origin`, verifie en lecture, et le premier commit a ete pousse.
+  `origin`, verifie en lecture, et le prototype applicatif a ete pousse.
 - Les sources externes de mises a jour doivent etre confirmees avant usage
   reseau.
 
