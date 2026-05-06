@@ -42,10 +42,11 @@ Fichiers de verite crees :
 
 ## Etat courant
 
-- Repo modifie : documentation de cadrage initiale creee.
+- Repo modifie : documentation de cadrage initiale creee, depot git initialise,
+  remote GitHub relie, premier commit pousse sur `origin/main`.
 - Prod alignee : non applicable, aucune application deployee.
-- Validation reelle effectuee : presence et contenu des fichiers de cadrage
-  verifies localement le 2026-05-06.
+- Validation reelle effectuee : presence et contenu des fichiers de cadrage,
+  remote GitHub, commit et push initial verifies le 2026-05-06.
 
 ## Sources de verite connues
 

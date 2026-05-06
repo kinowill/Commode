@@ -14,6 +14,7 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
       ou hybride.
 - [x] Definir la politique privacy-first et l'usage reseau.
 - [x] Initialiser git avec un `.gitignore` prudent avant le premier commit.
+- [x] Relier le remote GitHub et pousser la documentation initiale.
 - [ ] Choisir la stack technique apres comparaison des consequences.
 - [ ] Definir les sources locales de detection des logiciels Windows.
 - [ ] Definir les donnees affichees pour chaque logiciel.
@@ -32,7 +33,7 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
 - Le niveau d'automatisation des mises a jour n'est pas encore tranche.
 - Le terminal integre demande un cadrage securite avant implementation.
 - Le depot GitHub `https://github.com/kinowill/Commode` est relie en remote
-  `origin` et verifie en lecture, mais aucun commit n'a encore ete pousse.
+  `origin`, verifie en lecture, et le premier commit a ete pousse.
 - Les sources externes eventuelles doivent etre confirmees avant usage reseau.
 
 ## Decisions

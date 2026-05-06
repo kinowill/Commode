@@ -95,3 +95,19 @@ Notes :
 - Aucun commit n'existe encore au moment de cette entree.
 - L'email Git local configure est un noreply afin d'eviter la publication d'une
   adresse personnelle.
+
+## 2026-05-06 - Premier commit et push GitHub
+
+Etat :
+
+- Repo modifie : premier commit cree et pousse sur `origin/main`.
+- Prod alignee : non applicable, aucune application n'existe encore.
+- Validation reelle effectuee : sortie du script de commit/push confirmee et
+  branche `main` configuree pour suivre `origin/main`.
+
+Notes :
+
+- Commit initial : `f5f780d` (`docs: initialize project protocol`).
+- Fichiers pousses : `.gitignore`, `MASTER.md`, `ROADMAP.md`, `VALIDATION.md`.
+- Aucun code applicatif, secret, cache, build, export ou donnee personnelle n'a
+  ete pousse.
