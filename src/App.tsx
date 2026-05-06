@@ -16,6 +16,11 @@ type InstalledApp = {
   updateHint: string;
 };
 
+type AppIconProps = {
+  app: InstalledApp;
+  size?: "compact" | "large";
+};
+
 type SoftwareInventory = {
   scannedAt: string;
   total: number;
@@ -244,9 +249,7 @@ function App() {
                   type="button"
                   onClick={() => setSelectedId(app.id)}
                 >
-                  <span className="app-initial" aria-hidden="true">
-                    {app.name.slice(0, 1).toUpperCase()}
-                  </span>
+                  <AppIcon app={app} />
                   <span className="software-main">
                     <strong>{app.name}</strong>
                     <small>{app.publisher ?? "Editeur inconnu"}</small>
@@ -268,7 +271,7 @@ function App() {
             {selectedApp ? (
               <>
                 <div className="details-header">
-                  <span className="app-badge">{selectedApp.name.slice(0, 2).toUpperCase()}</span>
+                  <AppIcon app={selectedApp} size="large" />
                   <div>
                     <p className="eyebrow">{selectedApp.category}</p>
                     <h3>{selectedApp.name}</h3>
@@ -362,6 +365,85 @@ function App() {
       </section>
     </main>
   );
+}
+
+function AppIcon({ app, size = "compact" }: AppIconProps) {
+  return (
+    <span className={`app-icon ${size}`} aria-hidden="true">
+      <svg viewBox="0 0 48 48" role="img">
+        <IconShape category={app.category} />
+      </svg>
+      <span>{app.name.slice(0, 1).toUpperCase()}</span>
+    </span>
+  );
+}
+
+function IconShape({ category }: { category: string }) {
+  switch (category) {
+    case "Navigateurs":
+      return (
+        <>
+          <circle cx="24" cy="24" r="15" />
+          <path d="M10 22h28M24 9c6 7 6 23 0 30M24 9c-6 7-6 23 0 30" />
+        </>
+      );
+    case "Developpement":
+      return (
+        <>
+          <path d="M18 15 9 24l9 9M30 15l9 9-9 9" />
+          <path d="M27 11 21 37" />
+        </>
+      );
+    case "Creation":
+      return (
+        <>
+          <path d="M14 34 32 16l4 4-18 18h-4v-4Z" />
+          <path d="M29 19 33 23" />
+        </>
+      );
+    case "Communication":
+      return (
+        <>
+          <path d="M11 14h26v18H21l-7 6v-6h-3V14Z" />
+          <path d="M17 22h14M17 27h9" />
+        </>
+      );
+    case "Jeux":
+      return (
+        <>
+          <path d="M15 20h18l5 12-4 4-6-5h-8l-6 5-4-4 5-12Z" />
+          <path d="M17 26h8M21 22v8M31 25h.1M35 29h.1" />
+        </>
+      );
+    case "Securite":
+      return (
+        <>
+          <path d="M24 9 37 14v10c0 8-5 13-13 16-8-3-13-8-13-16V14l13-5Z" />
+          <path d="m18 24 4 4 8-9" />
+        </>
+      );
+    case "Productivite":
+      return (
+        <>
+          <path d="M15 10h18v28H15z" />
+          <path d="M19 17h10M19 24h10M19 31h7" />
+        </>
+      );
+    case "Systeme":
+      return (
+        <>
+          <path d="M24 13v-4M24 39v-4M35 24h4M9 24h4M32 16l3-3M13 35l3-3M32 32l3 3M13 13l3 3" />
+          <circle cx="24" cy="24" r="8" />
+        </>
+      );
+    default:
+      return (
+        <>
+          <rect x="13" y="11" width="22" height="26" rx="3" />
+          <path d="M18 18h12M18 24h12M18 30h8" />
+        </>
+      );
+  }
 }
 
 function Detail({ label, value }: { label: string; value?: string }) {

@@ -196,3 +196,24 @@ Notes :
 - Commit pousse : `49519f5` (`feat: scaffold commode desktop prototype`).
 - Les artefacts de build et installateurs sont restes locaux et ignores.
 - Cette entree documentaire aligne la trace projet avec le push du prototype.
+
+## 2026-05-06 - Correction images en mode non installe
+
+Etat :
+
+- Repo modifie : pictogrammes SVG inline par categorie ajoutes a l'interface.
+- Prod alignee : non applicable.
+- Validation reelle effectuee : `npm run typecheck`, `npm run build` et
+  `npm run tauri build` reussis le 2026-05-06.
+
+Notes :
+
+- Cause constatee : le prototype n'affichait pas de vraies images logiciel,
+  seulement des badges texte. En mode non installe, il ne fallait pas pointer
+  vers des fichiers externes ou installes ailleurs.
+- Correction choisie : pictogrammes embarques dans le bundle React, sans acces
+  disque et sans reseau.
+- Executable portable regenere :
+  `src-tauri\target\release\commode.exe`.
+- Prochaine evolution : extraction de vraies icones depuis les executables
+  Windows et cache local controle.
