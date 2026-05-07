@@ -94,8 +94,8 @@ Fichiers et dossiers principaux :
   --audit-level=high` et `npm run tauri build` reussissent. Ces validations
   ont ete reexecutees apres correction des filtres `Categorie` / `Toutes` /
   `Affichage`. Commits et push GitHub effectues ensuite. Retest manuel complet
-  dans la fenetre Tauri encore a faire. Prerelease `v0.1.0` creee et verifiee
-  sur GitHub le 2026-05-07.
+  confirme par l'utilisateur le 2026-05-07 ("ca fonctionne"). Prerelease
+  `v0.1.0` creee et verifiee sur GitHub le 2026-05-07.
 
 ## Sources de verite connues
 
@@ -119,10 +119,10 @@ Fichiers et dossiers principaux :
 - Garde-fous avances du terminal integre PowerShell/CMD.
 - UX definitive de la verification et de la mise a jour des logiciels apres la
   premiere verification `winget`.
-- Validation manuelle des vraies icones logiciel extraites depuis les chemins
-  Windows detectes.
-- Validation manuelle du responsive desktop a la largeur minimale Tauri
-  stabilisee a 1040 px et aux largeurs superieures.
+- Extraction/cache des vraies icones Windows a surveiller sur davantage de
+  logiciels au fil des tests.
+- Responsive desktop valide manuellement pour le prototype, a surveiller lors
+  des futurs ajouts d'interface.
 - UX definitive des actions logiciel apres la premiere implementation locale :
   lancer, ouvrir dans l'Explorateur, modifier les metadonnees locales, masquer,
   retirer de l'affichage, ou desinstaller. Les actions destructrices ne doivent

@@ -467,3 +467,20 @@ Notes :
 
 - Cette publication est volontairement une prerelease, pas une version stable,
   car le retest manuel complet dans la fenetre Tauri reste a confirmer.
+
+## 2026-05-07 - Validation manuelle prototype
+
+Etat :
+
+- Repo modifie : non, validation utilisateur uniquement.
+- Prod alignee : non applicable, application non distribuee ni installee comme
+  prod. La prerelease GitHub `v0.1.0` reste disponible.
+- Validation reelle effectuee : validation manuelle confirmee par l'utilisateur
+  le 2026-05-07 avec le retour "ca fonctionne".
+
+Notes :
+
+- Le prototype Tauri `v0.1.0` est considere fonctionnellement valide pour cette
+  iteration.
+- Les prochaines etapes produit restent separees : strategie de mise a jour,
+  durcissement avance du terminal et eventuelle recherche locale de documents.

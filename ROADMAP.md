@@ -63,11 +63,11 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
 - [x] Pousser le prototype applicatif sur GitHub.
 - [x] Publier une prerelease GitHub `v0.1.0` avec les installateurs Windows
       NSIS et MSI.
+- [x] Valider manuellement le prototype dans une fenetre Tauri sur la machine
+      cible.
 - [ ] Definir le perimetre d'une recherche locale de documents : dossiers,
       types de fichiers, scan a la demande ou index, et garde-fous de
       confidentialite/performance.
-- [ ] Valider manuellement le prototype dans une fenetre Tauri sur la machine
-      cible.
 
 ## Bloquants / arbitrages
 
@@ -77,17 +77,15 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
 - Le terminal integre fonctionne en commande explicite avec premiers
   garde-fous, mais ses garde-fous avances restent a durcir.
 - Les pictogrammes embarques restent le fallback ; une premiere extraction/cache
-  des vraies icones Windows est implementee localement. La CSP Tauri autorise
-  maintenant les icones base64, mais le rendu reste a valider manuellement sur
-  la machine cible.
+  des vraies icones Windows est implementee localement et validee sur le
+  prototype, mais reste a surveiller sur davantage de logiciels.
 - Les actions logiciel sont implementees localement par niveau de risque, avec
-  confirmation pour la desinstallation, mais elles restent a valider
-  manuellement dans une fenetre Tauri.
+  confirmation pour la desinstallation, et le prototype fonctionne en validation
+  manuelle utilisateur.
 - Le responsive desktop a ete stabilise localement autour d'une largeur
-  minimale Tauri de 1040 px, mais il reste a valider visuellement dans la
-  fenetre Tauri.
-- Les filtres catalogue ont ete repris localement, mais le rendu doit etre
-  revalide manuellement dans la fenetre Tauri au minimum de largeur.
+  minimale Tauri de 1040 px et valide manuellement sur le prototype.
+- Les filtres catalogue ont ete repris localement et valides manuellement sur
+  le prototype.
 - La recherche de documents est une idee produit notee, non implementee. Elle
   ne doit pas etre melangee aux corrections actions/CSS en cours.
 - Le depot GitHub `https://github.com/kinowill/Commode` est relie en remote
