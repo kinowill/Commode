@@ -89,9 +89,8 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
 - La recherche de documents est une idee produit notee, non implementee. Elle
   ne doit pas etre melangee aux corrections actions/CSS en cours.
 - Le depot GitHub `https://github.com/kinowill/Commode` est relie en remote
-  `origin`, verifie en lecture, et le prototype applicatif a ete pousse. Les
-  derniers changements locaux actions/CSS ne sont pas encore commites ni
-  pousses.
+  `origin`, verifie en lecture, et les derniers changements actions/CSS/docs
+  ont ete pousses sur `origin/main`.
 - Les sources externes de mises a jour doivent etre confirmees avant usage
   reseau.
 

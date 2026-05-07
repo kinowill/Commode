@@ -413,3 +413,24 @@ Notes :
 
 - Retest manuel dans une fenetre Tauri : verifier au minimum de largeur que
   `Categorie`, `Toutes` et `Affichage` restent lisibles et cliquables.
+
+## 2026-05-06 - Commits et push actions/CSS
+
+Etat :
+
+- Repo modifie : deux commits crees puis pousses sur `origin/main`.
+- Prod alignee : non applicable, application non distribuee ni installee.
+  Depot GitHub aligne avec le repo local.
+- Validation reelle effectuee : push GitHub reussi le 2026-05-06.
+
+Commits pousses :
+
+- `265d05e` (`feat: add software controls and local state`)
+- `9744597` (`docs: record software controls validation`)
+
+Notes :
+
+- Les validations automatiques notees dans les entrees precedentes restent les
+  validations de reference pour ce push.
+- Retest manuel complet dans la fenetre Tauri : encore a confirmer par
+  l'utilisateur avant de considerer le chantier fonctionnellement termine.

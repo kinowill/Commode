@@ -76,8 +76,8 @@ Fichiers et dossiers principaux :
   une ligne controlee, boutons d'affichage flexibles, et bande `Toutes` /
   categories en defilement horizontal stable.
 - Prod alignee : non applicable, application non distribuee ni installee.
-  GitHub `origin/main` n'est pas encore aligne avec les changements locaux non
-  commites.
+  GitHub `origin/main` est aligne avec les changements locaux via les commits
+  `265d05e` et `9744597`.
 - Validation reelle effectuee : typecheck frontend, formatage Rust, check Rust,
   tests Rust, audit npm, build frontend, build Tauri installable et push GitHub
   effectues le 2026-05-06. Le 2026-05-06, apres le chantier local actions/CSS,
@@ -91,7 +91,8 @@ Fichiers et dossiers principaux :
   --manifest-path src-tauri\Cargo.toml`, `git diff --check`, `npm audit
   --audit-level=high` et `npm run tauri build` reussissent. Ces validations
   ont ete reexecutees apres correction des filtres `Categorie` / `Toutes` /
-  `Affichage`. Retest manuel complet dans la fenetre Tauri encore a faire.
+  `Affichage`. Commits et push GitHub effectues ensuite. Retest manuel complet
+  dans la fenetre Tauri encore a faire.
 
 ## Sources de verite connues
 
