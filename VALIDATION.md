@@ -434,3 +434,36 @@ Notes :
   validations de reference pour ce push.
 - Retest manuel complet dans la fenetre Tauri : encore a confirmer par
   l'utilisateur avant de considerer le chantier fonctionnellement termine.
+
+## 2026-05-07 - Prerelease GitHub v0.1.0
+
+Etat :
+
+- Repo modifie : non au moment de la creation de release ; la release cible le
+  commit `011219f` sur `main`.
+- Prod alignee : non applicable, application non distribuee ni installee comme
+  prod. Une prerelease GitHub publique existe.
+- Validation reelle effectuee : creation et verification GitHub de la
+  prerelease `v0.1.0` reussies le 2026-05-07.
+
+Release :
+
+- URL : `https://github.com/kinowill/Commode/releases/tag/v0.1.0`
+- Statut GitHub : prerelease.
+- Titre : `Commode v0.1.0 - Prototype Windows`.
+
+Artefacts verifies :
+
+- `Commode_0.1.0_x64-setup.exe`
+  - Taille : 2 093 113 octets.
+  - SHA256 :
+    `d303426de67d6f4093c4997bce6e3f740360dea79e8c7b7848dbad78e87958b1`.
+- `Commode_0.1.0_x64_en-US.msi`
+  - Taille : 3 219 456 octets.
+  - SHA256 :
+    `d00bb79080d72c87dad13b9c4d068f20bab91aedab7782e58b8bc4cf553f71b1`.
+
+Notes :
+
+- Cette publication est volontairement une prerelease, pas une version stable,
+  car le retest manuel complet dans la fenetre Tauri reste a confirmer.

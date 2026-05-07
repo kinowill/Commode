@@ -61,6 +61,8 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
       complet sans passer par la liste deroulante.
 - [x] Construire un premier prototype local.
 - [x] Pousser le prototype applicatif sur GitHub.
+- [x] Publier une prerelease GitHub `v0.1.0` avec les installateurs Windows
+      NSIS et MSI.
 - [ ] Definir le perimetre d'une recherche locale de documents : dossiers,
       types de fichiers, scan a la demande ou index, et garde-fous de
       confidentialite/performance.
@@ -90,7 +92,8 @@ PowerShell/CMD et une interface avec un niveau de finition eleve.
   ne doit pas etre melangee aux corrections actions/CSS en cours.
 - Le depot GitHub `https://github.com/kinowill/Commode` est relie en remote
   `origin`, verifie en lecture, et les derniers changements actions/CSS/docs
-  ont ete pousses sur `origin/main`.
+  ont ete pousses sur `origin/main`. Une prerelease `v0.1.0` est disponible :
+  `https://github.com/kinowill/Commode/releases/tag/v0.1.0`.
 - Les sources externes de mises a jour doivent etre confirmees avant usage
   reseau.
 

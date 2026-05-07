@@ -77,7 +77,9 @@ Fichiers et dossiers principaux :
   categories en defilement horizontal stable.
 - Prod alignee : non applicable, application non distribuee ni installee.
   GitHub `origin/main` est aligne avec les changements locaux via les commits
-  `265d05e` et `9744597`.
+  `265d05e` et `9744597`. Une prerelease GitHub `v0.1.0` existe avec les
+  installateurs Windows NSIS et MSI :
+  `https://github.com/kinowill/Commode/releases/tag/v0.1.0`.
 - Validation reelle effectuee : typecheck frontend, formatage Rust, check Rust,
   tests Rust, audit npm, build frontend, build Tauri installable et push GitHub
   effectues le 2026-05-06. Le 2026-05-06, apres le chantier local actions/CSS,
@@ -92,7 +94,8 @@ Fichiers et dossiers principaux :
   --audit-level=high` et `npm run tauri build` reussissent. Ces validations
   ont ete reexecutees apres correction des filtres `Categorie` / `Toutes` /
   `Affichage`. Commits et push GitHub effectues ensuite. Retest manuel complet
-  dans la fenetre Tauri encore a faire.
+  dans la fenetre Tauri encore a faire. Prerelease `v0.1.0` creee et verifiee
+  sur GitHub le 2026-05-07.
 
 ## Sources de verite connues
 
