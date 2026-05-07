@@ -17,6 +17,8 @@ des fonctions de verification et de mise a jour.
 - Recherche propre et rapide.
 - Verification des versions disponibles.
 - Aide a la mise a jour des logiciels.
+- Recherche locale de documents a definir : retrouver rapidement des fichiers
+  utiles sans remplacer tout l'Explorateur Windows.
 - Fenetre terminal integree pour PowerShell et CMD.
 - Actions controlees sur un logiciel : ouvrir l'emplacement dans
   l'Explorateur, lancer l'application quand le chemin est connu, modifier les
@@ -54,18 +56,42 @@ Fichiers et dossiers principaux :
 
 - Repo modifie : prototype Tauri/React/Rust cree et pousse sur `origin/main`
   avec inventaire Windows via registre, recherche/categories, fiches detaillees
-  et terminal PowerShell/CMD integre. Corrections UI appliquees : pictogrammes
-  embarques, suppression des faux liens, terminal a la demande, wording mises a
-  jour nettoye pour le mode non installe, bouton de retour au filtre "Toutes"
-  visible. Les actions futures sur un logiciel sont notees : ouvrir dans
-  l'Explorateur, lancer, modifier les metadonnees locales, masquer/retirer, et
-  desinstaller avec confirmation explicite.
+  et terminal PowerShell/CMD integre. Le chantier local non encore commite
+  ajoute une premiere version des actions logiciel (lancer, ouvrir,
+  Explorateur, copie de chemin, desinstallation avec confirmation), des
+  metadonnees locales persistantes (categorie personnalisee, note, favori,
+  masque), l'historique terminal local, la detection de commandes sensibles, la
+  verification `winget upgrade` sur action explicite, l'extraction/cache
+  d'icones Windows et les styles CSS associes. Apres validation utilisateur
+  partielle, le lancement Windows a ete corrige pour laisser Windows gerer
+  l'elevation/UAC, les commandes PowerShell rapides ont ete durcies contre les
+  collisions de noms comme `Get-Process`, et les logiciels masques sont
+  retrouvables via un filtre visible `Masques`. Apres nouveau retour
+  utilisateur, les icones base64 sont autorisees par la CSP Tauri (`data:`), le
+  fallback d'icone est rendu plus visible. La tentative de largeur minimale a
+  720 px a ete jugee trop instable pour cette interface desktop dense ; la
+  largeur minimale Tauri est revenue a 1040 px avec des breakpoints CSS
+  simplifies. Le dernier correctif local stabilise specifiquement les filtres
+  du catalogue : recherche sur une ligne complete, categorie et affichage sur
+  une ligne controlee, boutons d'affichage flexibles, et bande `Toutes` /
+  categories en defilement horizontal stable.
 - Prod alignee : non applicable, application non distribuee ni installee.
+  GitHub `origin/main` n'est pas encore aligne avec les changements locaux non
+  commites.
 - Validation reelle effectuee : typecheck frontend, formatage Rust, check Rust,
   tests Rust, audit npm, build frontend, build Tauri installable et push GitHub
-  effectues le 2026-05-06. Typecheck frontend, build frontend et build Tauri
-  reeffectues le 2026-05-06 apres correction du filtre "Toutes". Test manuel
-  dans la fenetre Tauri non encore effectue.
+  effectues le 2026-05-06. Le 2026-05-06, apres le chantier local actions/CSS,
+  `npm run typecheck`, `npm run build`, `cargo fmt --manifest-path
+  src-tauri\Cargo.toml -- --check`, `cargo test --manifest-path
+  src-tauri\Cargo.toml`, `git diff --check`, `npm audit --audit-level=high` et
+  `npm run tauri build` reussissent. Apres correction elevation/masques/terminal,
+  les memes validations reussissent avec 24 tests Rust. Apres correction
+  icones/CSP et stabilisation responsive desktop, `npm run typecheck`, `npm run
+  build`, `cargo fmt --manifest-path src-tauri\Cargo.toml -- --check`, `cargo test
+  --manifest-path src-tauri\Cargo.toml`, `git diff --check`, `npm audit
+  --audit-level=high` et `npm run tauri build` reussissent. Ces validations
+  ont ete reexecutees apres correction des filtres `Categorie` / `Toutes` /
+  `Affichage`. Retest manuel complet dans la fenetre Tauri encore a faire.
 
 ## Sources de verite connues
 
@@ -83,14 +109,20 @@ Fichiers et dossiers principaux :
 - Sources de donnees pour les informations detaillees.
 - Methode de verification des versions disponibles.
 - Methode de mise a jour des logiciels.
+- Perimetre d'une eventuelle recherche de documents locale : dossiers inclus,
+  types de fichiers, index ou scan a la demande, performances et confidentialite.
 - Niveau d'automatisation autorise pour les mises a jour.
 - Garde-fous avances du terminal integre PowerShell/CMD.
-- Extraction de vraies icones logiciel depuis les executables Windows.
-- UX definitive de la verification et de la mise a jour des logiciels.
-- UX definitive des actions logiciel : lancer, ouvrir dans l'Explorateur,
-  modifier les metadonnees locales, masquer, retirer de l'affichage, ou
-  desinstaller. Les actions destructrices ne doivent jamais etre lancees sans
-  confirmation claire.
+- UX definitive de la verification et de la mise a jour des logiciels apres la
+  premiere verification `winget`.
+- Validation manuelle des vraies icones logiciel extraites depuis les chemins
+  Windows detectes.
+- Validation manuelle du responsive desktop a la largeur minimale Tauri
+  stabilisee a 1040 px et aux largeurs superieures.
+- UX definitive des actions logiciel apres la premiere implementation locale :
+  lancer, ouvrir dans l'Explorateur, modifier les metadonnees locales, masquer,
+  retirer de l'affichage, ou desinstaller. Les actions destructrices ne doivent
+  jamais etre lancees sans confirmation claire.
 
 ## Decisions prises
 

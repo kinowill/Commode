@@ -263,3 +263,153 @@ Notes :
   confirmation explicite.
 - Executable portable regenere :
   `src-tauri\target\release\commode.exe`.
+
+## 2026-05-06 - Chantier local actions logiciel, CSS et validations
+
+Etat :
+
+- Repo modifie : changements locaux non encore commites ajoutant actions
+  logiciel, metadonnees locales persistantes, historique terminal, premiers
+  garde-fous de commandes sensibles, verification `winget upgrade`, extraction
+  et cache d'icones Windows, et CSS associe. `cargo fmt` a ete applique apres
+  un premier echec de controle de formatage.
+- Prod alignee : non applicable, application non distribuee ni installee.
+  GitHub `origin/main` n'est pas encore aligne avec ces changements locaux.
+- Validation reelle effectuee : validations automatiques et build installable
+  reussis le 2026-05-06.
+
+Commandes validees :
+
+- `npm run typecheck`
+- `npm run build`
+- `cargo fmt --manifest-path src-tauri\Cargo.toml -- --check`
+- `cargo test --manifest-path src-tauri\Cargo.toml` : 21 tests reussis.
+- `git diff --check`
+- `npm audit --audit-level=high` : 0 vulnerabilite haute detectee.
+- `npm run tauri build`
+
+Artefacts regeneres :
+
+- `src-tauri\target\release\commode.exe`
+- `src-tauri\target\release\bundle\nsis\Commode_0.1.0_x64-setup.exe`
+- `src-tauri\target\release\bundle\msi\Commode_0.1.0_x64_en-US.msi`
+
+Notes :
+
+- Test manuel dans une fenetre Tauri : non effectue a ce stade.
+- Les fichiers Rust ajoutes doivent etre inclus dans le prochain commit, sinon
+  `src-tauri/src/lib.rs` referencera des modules absents dans le depot distant.
+
+## 2026-05-06 - Corrections apres validation utilisateur partielle
+
+Etat :
+
+- Repo modifie : correction du lancement Windows pour laisser ShellExecute
+  gerer les applications qui demandent une elevation/UAC, durcissement du
+  terminal PowerShell avec commande encodee UTF-16 et import des modules
+  standards, commandes rapides PowerShell qualifiees, filtre visible `Visibles
+  / Tous / Masques`, bascule automatique vers les logiciels masques apres
+  masquage, et ajout de l'idee produit "recherche locale de documents" dans la
+  roadmap.
+- Prod alignee : non applicable, application non distribuee ni installee.
+  GitHub `origin/main` n'est pas encore aligne avec ces changements locaux.
+- Validation reelle effectuee : validations automatiques et build installable
+  reussis le 2026-05-06 apres correction.
+
+Cause constatee :
+
+- `L'operation demandee necessite une elevation (os error 740)` venait du
+  lancement direct par `CreateProcess` de certains executables Windows.
+- `Top processus` echouait parce qu'un fichier local
+  `C:\Windows\System32\Get-Process` pouvait etre resolu avant le cmdlet
+  PowerShell attendu quand les modules standards n'etaient pas importes.
+- Le masquage fonctionnait techniquement, mais l'interface n'expliquait pas
+  clairement ou retrouver les logiciels masques.
+
+Commandes validees :
+
+- `npm run typecheck`
+- `npm run build`
+- `cargo fmt --manifest-path src-tauri\Cargo.toml -- --check`
+- `cargo test --manifest-path src-tauri\Cargo.toml` : 24 tests reussis.
+- `git diff --check`
+- `npm audit --audit-level=high` : 0 vulnerabilite haute detectee.
+- `npm run tauri build`
+
+Notes :
+
+- Retest manuel dans une fenetre Tauri : a refaire par l'utilisateur sur les
+  points concernes, notamment `Top processus`, masquage/demasquage, lancement
+  d'un logiciel qui demande l'elevation, et annulation d'une confirmation UAC.
+
+## 2026-05-06 - Corrections icones et responsive
+
+Etat :
+
+- Repo modifie : la CSP Tauri autorise maintenant `data:` pour afficher les
+  icones PNG base64 extraites depuis Windows, le fallback d'icone est plus
+  visible. La tentative de largeur minimale Tauri a 720 px a ensuite ete
+  retiree apres retour utilisateur : l'application revient a une largeur
+  minimale desktop de 1040 px, avec des breakpoints CSS simplifies pour ne pas
+  casser l'interface dense.
+- Prod alignee : non applicable, application non distribuee ni installee.
+  GitHub `origin/main` n'est pas encore aligne avec ces changements locaux.
+- Validation reelle effectuee : validations automatiques et build installable
+  reussis le 2026-05-06 apres correction.
+
+Cause constatee :
+
+- Les icones reelles etaient rendues en `data:image/png;base64,...`, mais la
+  CSP Tauri n'autorisait pas `data:` dans `img-src`.
+- Le responsive a d'abord ete trop ouvert par `minWidth: 720`, alors que
+  l'interface actuelle est une application desktop dense. Cette largeur
+  declenchait des empilements et controles trop serres.
+
+Commandes validees :
+
+- `npm run typecheck`
+- `npm run build`
+- `cargo fmt --manifest-path src-tauri\Cargo.toml -- --check`
+- `cargo test --manifest-path src-tauri\Cargo.toml` : 24 tests reussis.
+- `git diff --check`
+- `npm audit --audit-level=high` : 0 vulnerabilite haute detectee.
+- `npm run tauri build`
+
+Notes :
+
+- Retest manuel dans une fenetre Tauri : a refaire par l'utilisateur sur
+  l'affichage des icones et le comportement a la largeur minimale 1040 px.
+
+## 2026-05-06 - Correction filtres catalogue
+
+Etat :
+
+- Repo modifie : reprise ciblee de la toolbar catalogue. La recherche occupe
+  maintenant une ligne complete, `Categorie` et `Affichage` partagent une ligne
+  plus stable, les boutons d'affichage peuvent se repartir sans debordement, et
+  les boutons `Toutes` / categories restent en defilement horizontal controle.
+- Prod alignee : non applicable, application non distribuee ni installee.
+  GitHub `origin/main` n'est pas encore aligne avec ces changements locaux.
+- Validation reelle effectuee : validations automatiques et build installable
+  reussis le 2026-05-06 apres correction.
+
+Cause constatee :
+
+- La toolbar avait trois colonnes dans le panneau catalogue alors que ce panneau
+  devient etroit quand la fiche detail reste a droite. Les colonnes `Categorie`
+  et `Affichage` entraient en concurrence avec la bande de filtres.
+
+Commandes validees :
+
+- `npm run typecheck`
+- `npm run build`
+- `cargo fmt --manifest-path src-tauri\Cargo.toml -- --check`
+- `cargo test --manifest-path src-tauri\Cargo.toml` : 24 tests reussis.
+- `git diff --check`
+- `npm audit --audit-level=high` : 0 vulnerabilite haute detectee.
+- `npm run tauri build`
+
+Notes :
+
+- Retest manuel dans une fenetre Tauri : verifier au minimum de largeur que
+  `Categorie`, `Toutes` et `Affichage` restent lisibles et cliquables.
